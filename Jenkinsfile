@@ -26,7 +26,7 @@ pipeline {
         }
         stage('docker build') {
             steps {
-               sh "docker -v"
+               sh "docker version"
                sh "docker build -t maitrapartha/hello-service ."
 
             }
