@@ -26,9 +26,8 @@ pipeline {
         }
         stage('docker build') {
             steps {
-               sh "docker -v"
                sh "mvn dockerfile:build"
-
+               sh "docker version"
             }
         }
 
