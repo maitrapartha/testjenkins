@@ -27,7 +27,7 @@ pipeline {
         stage('docker build') {
             steps {
                sh "docker -v"
-               sh "docker build -t maitrapartha/hello-service ."
+               sh "mvn dockerfile:build"
 
             }
         }
