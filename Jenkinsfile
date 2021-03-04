@@ -3,7 +3,7 @@ pipeline {
 
     tools {
        // that is the name of the "maven installation " in Global settings
-        maven "M3"
+        maven "m3"
     }
 
     stages {
@@ -24,12 +24,14 @@ pipeline {
                sh "mvn test"
             }
         }
-        stage('maven test') {
+        stage('docker build') {
             steps {
                sh "docker -v"
                sh "docker build -t maitrapartha/hello-service ."
+
             }
         }
+
 
 
     }
