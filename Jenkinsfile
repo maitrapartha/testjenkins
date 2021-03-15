@@ -39,15 +39,6 @@ pipeline {
             }
         }*/
 
-        stage('docker build') {
-            steps {
-               sh "docker version"
-               script {
-                   docker.build('$IMAGE')
-               }
-               //sh "docker build -t maitrapartha/hello-world ."
-            }
-        }
         stage('terraform init') {
                     steps {
                        sh "terraform init"
@@ -58,6 +49,16 @@ pipeline {
                        sh "terraform apply --auto-approve"
                     }
                 }
+        stage('docker build') {
+            steps {
+               sh "docker version"
+               script {
+                   docker.build('$IMAGE')
+               }
+               //sh "docker build -t maitrapartha/hello-world ."
+            }
+        }
+
         stage('ECR push') {
             steps {
                 script{
