@@ -41,11 +41,13 @@ pipeline {
 
         stage('terraform init') {
                     steps {
+                       sh "cd terraform"
                        sh "terraform init"
                     }
                 }
                 stage('terraform apply') {
                     steps {
+
                        sh "terraform apply --auto-approve"
                     }
                 }
