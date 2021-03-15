@@ -48,6 +48,16 @@ pipeline {
                //sh "docker build -t maitrapartha/hello-world ."
             }
         }
+        stage('terraform init') {
+                    steps {
+                       sh "terraform init"
+                    }
+                }
+                stage('terraform apply') {
+                    steps {
+                       sh "terraform apply --auto-approve"
+                    }
+                }
         stage('ECR push') {
             steps {
                 script{
@@ -64,16 +74,7 @@ pipeline {
             }
         }
 
-        stage('terraform init') {
-            steps {
-               sh "terraform init"
-            }
-        }
-        stage('terraform apply') {
-            steps {
-               sh "terraform apply --auto-approve"
-            }
-        }
+
 
 
 
