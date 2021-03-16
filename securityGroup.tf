@@ -32,7 +32,7 @@ resource "aws_iam_role" "ecs_agent" {
 }
 resource "aws_iam_role_policy_attachment" "ecs_agent" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
-  role = "aws_iam_role.ecs_agent.name"
+  role = aws_iam_role.ecs_agent.name
 }
 resource "aws_iam_instance_profile" "ecs_agent" {
   name = "ecs-agent"

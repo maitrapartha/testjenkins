@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 resource "aws_subnet" "pub_subnet" {
-  cidr_block = "10.1.0.0/22"
+  cidr_block = "10.0.1.0/22"
   vpc_id = aws_vpc.vpc.id
 }
 resource "aws_internet_gateway" "iGW" {
