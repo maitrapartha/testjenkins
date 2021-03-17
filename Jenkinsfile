@@ -11,7 +11,8 @@ pipeline {
           VERSION = "${BUILD_NUMBER}"
           //PROJECT = "hello-service"
           PROJECT = 'partham'
-          IMAGE = "$PROJECT:$VERSION"
+          //IMAGE = "$PROJECT:$VERSION"
+          IMAGE = "$PROJECT:latest"
           ECR_URL = "https://113136225681.dkr.ecr.us-east-1.amazonaws.com/partham"
           AWS_CRED = "ecr:us-east-1:AWSCreECR"
           AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY')
