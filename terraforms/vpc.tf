@@ -7,12 +7,22 @@ resource "aws_vpc" "demo2-vpc" {
   }
 }
 
-## define public subnet
+## define public subnet -1
 resource "aws_subnet" "demo2-PubSN-1" {
   cidr_block = "10.0.0.0/22"
   vpc_id = aws_vpc.demo2-vpc.id
   tags = {
     Name = "Demo2 Public Subnet - 1"
+  }
+}
+
+
+## define public subnet -2
+resource "aws_subnet" "demo2-PubSN-2" {
+  cidr_block = "10.0.0.0/22"
+  vpc_id = aws_vpc.demo2-vpc.id
+  tags = {
+    Name = "Demo2 Public Subnet - 2"
   }
 }
 
@@ -24,7 +34,7 @@ resource "aws_internet_gateway" "demo2-IG" {
   }
 }
 
-## route table for public subnet
+## route table for public subnet-1
 resource "aws_route_table" "demo2PubSN1-0RT" {
   vpc_id = aws_vpc.demo2-vpc.id
   route {
@@ -32,14 +42,31 @@ resource "aws_route_table" "demo2PubSN1-0RT" {
     gateway_id = aws_internet_gateway.demo2-IG.id
   }
   tags = {
-    Name = "Demo2 Route table"
+    Name = "Demo2 Route table 1"
   }
 }
 
-#route table association to the public subnet
+## route table for public subnet-2
+resource "aws_route_table" "demo2PubSN2-1RT" {
+  vpc_id = aws_vpc.demo2-vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.demo2-IG.id
+  }
+  tags = {
+    Name = "Demo2 Route table 2"
+  }
+}
+
+#route table association to the public subnet-1
 resource "aws_route_table_association" "demo2PubSN1-0RT-association" {
   subnet_id = aws_subnet.demo2-PubSN-1.id
   route_table_id = aws_route_table.demo2PubSN1-0RT.id
+}
+#route table association to the public subnet-2
+resource "aws_route_table_association" "demo2PubSN2-1RT-association" {
+  subnet_id = aws_subnet.demo2-PubSN-2.id
+  route_table_id = aws_route_table.demo2PubSN2-1RT.id
 }
 
 ##### ECS instance security group
