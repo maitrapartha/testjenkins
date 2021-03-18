@@ -29,7 +29,7 @@ resource "aws_route_table" "demo2PubSN1-0RT" {
   vpc_id = aws_vpc.demo2-vpc.id
   route {
     cidr_block = "0.0.0.0/0"
-    egress_only_gateway_id = aws_internet_gateway.demo2-IG.id
+    gateway_id = aws_internet_gateway.demo2-IG.id
   }
   tags = {
     Name = "Demo2 Route table"
