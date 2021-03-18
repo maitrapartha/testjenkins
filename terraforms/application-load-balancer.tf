@@ -1,6 +1,6 @@
 resource "aws_alb" "demo2-ecs-load-balancer" {
   name = "demo2-ecs-load-balancer"
-  subnets = [aws_subnet.demo2-PubSN-1.id]
+  subnets = [aws_subnet.demo2-PubSN-1.id, aws_subnet.demo2-PubSN-2.id]
   security_groups = [aws_security_group.demo2-public-security-group.id]
   tags = {
     Name = "Demo2 ecs load balancer"
