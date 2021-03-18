@@ -9,7 +9,7 @@ resource "aws_vpc" "demo2-vpc" {
 
 ## define public subnet
 resource "aws_subnet" "demo2-PubSN-1" {
-  cidr_block = "10.0.1.0/22"
+  cidr_block = "10.0.0.0/22"
   vpc_id = aws_vpc.demo2-vpc.id
   tags = {
     Name = "Demo2 Public Subnet - 1"
