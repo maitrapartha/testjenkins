@@ -10,7 +10,7 @@ resource "aws_alb" "demo2-ecs-load-balancer" {
 resource "aws_alb_target_group" "demo2-ecs-alb-target-grp" {
   name = "demo2-ecs-alb-target-grp"
   port = 8080
-  protocol = "http"
+  protocol = "HTTP"
   vpc_id = aws_vpc.demo2-vpc.id
 //  health_check {
   //    healthy_threshold   = "5"
