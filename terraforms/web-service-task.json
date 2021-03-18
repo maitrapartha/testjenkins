@@ -1,0 +1,16 @@
+[
+  {
+    "name": "demo2-first-task",
+    "image": "ngnix",
+    "cpu": 1,
+    "memory": 512,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 8080
+      }
+    ],
+    "environment": []
+  }
+]
