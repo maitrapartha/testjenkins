@@ -11,7 +11,7 @@ resource "aws_vpc" "demo2-vpc" {
 resource "aws_subnet" "demo2-PubSN-1" {
   cidr_block = "10.0.1.0/24"
   vpc_id = aws_vpc.demo2-vpc.id
-  availability_zone_id = "	us-east-1a"
+  availability_zone_id = "use1-az1"
   tags = {
     Name = "Demo2 Public Subnet - 1"
   }
@@ -22,7 +22,7 @@ resource "aws_subnet" "demo2-PubSN-1" {
 resource "aws_subnet" "demo2-PubSN-2" {
   cidr_block = "10.0.2.0/24"
   vpc_id = aws_vpc.demo2-vpc.id
-  availability_zone_id = "	us-east-1b"
+  availability_zone_id = "use1-az2"
   tags = {
     Name = "Demo2 Public Subnet - 2"
   }
