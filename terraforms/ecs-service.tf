@@ -1,6 +1,7 @@
 resource "aws_ecs_service" "demo2-ecs-service" {
   name = "demo2-ecs-service"
-  iam_role = aws_iam_role.demo2-ecs-service-role.id
+  iam_role = aws_iam_role.demo2-ecs-service-role.name
+
   cluster = aws_ecs_cluster.demo2-ecs-cluster.id
   task_definition = aws_ecs_task_definition.demo2_task_definition.family
   desired_count = 2

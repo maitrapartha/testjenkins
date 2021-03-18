@@ -1,3 +1,4 @@
+
 data "aws_iam_policy_document" "demo2-ecs-service-policy" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -5,6 +6,8 @@ data "aws_iam_policy_document" "demo2-ecs-service-policy" {
       identifiers = ["ecs.amazonaws.com"]
       type = "Service"
     }
+    effect = "allow"
+    resources = ["*"]
   }
 }
 
