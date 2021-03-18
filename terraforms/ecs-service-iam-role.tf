@@ -1,4 +1,3 @@
-
 data "aws_iam_policy_document" "demo2-ecs-service-policy" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -6,8 +5,6 @@ data "aws_iam_policy_document" "demo2-ecs-service-policy" {
       identifiers = ["ecs.amazonaws.com"]
       type = "Service"
     }
-    effect = "allow"
-    resources = ["*"]
   }
 }
 
@@ -18,7 +15,7 @@ resource "aws_iam_role" "demo2-ecs-service-role" {
 }
 
 resource "aws_iam_role_policy_attachment" "demo2-ecs-role-policy-attachment" {
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AdministratorAccess"
   role = aws_iam_role.demo2-ecs-service-role.name
 }
 
