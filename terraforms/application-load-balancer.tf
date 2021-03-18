@@ -31,7 +31,7 @@ resource "aws_alb_target_group" "demo2-ecs-alb-target-grp" {
 resource "aws_alb_listener" "demo2-ecs-alb-listener" {
   load_balancer_arn = aws_alb.demo2-ecs-load-balancer.arn
   port = 8080
-  protocol = "http"
+  protocol = "HTTP"
   default_action {
     type = "forward"
     target_group_arn = aws_alb_target_group.demo2-ecs-alb-target-grp.arn
