@@ -4,7 +4,8 @@ data "aws_iam_policy_document" "demo2-ecs-service-policy" {
     principals {
       identifiers = ["ecs.amazonaws.com"]
       type = "Service"
-    }
+    },
+    effect = "Allow"
   }
 }
 
