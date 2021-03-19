@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "demo2-ecs-instance-policy" {
+/*data "aws_iam_policy_document" "demo2-ecs-instance-policy" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {
@@ -7,13 +7,31 @@ data "aws_iam_policy_document" "demo2-ecs-instance-policy" {
     }
     effect = "Allow"
   }
+}*/
+resource "aws_iam_role" "demo2-ecs-instance-role" {
+  name = "demo2-ecs-instance-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ecs.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
 }
 
-resource "aws_iam_role" "demo2-ecs-instance-role" {
+/*resource "aws_iam_role" "demo2-ecs-instance-role" {
   assume_role_policy = data.aws_iam_policy_document.demo2-ecs-instance-policy.json
   name = "demo2-ecs-instance-role"
   path = "/"
-}
+}*/
 
 resource "aws_iam_role_policy_attachment" "demo2-ecs-instance-role-attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
