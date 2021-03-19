@@ -13,16 +13,26 @@ resource "aws_iam_role" "demo2-ecs-service-role" {
   name = "demo2-ecs-service-role"
   assume_role_policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "ecs-tasks.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
+	"Version": "2012-10-17",
+	"Statement": [{
+		"Effect": "Allow",
+		"Principal": {
+			"Service": "ec2.amazonaws.com"
+		},
+		"Action": "sts:AssumeRole"
+	}, {
+		"Effect": "Allow",
+		"Principal": {
+			"Service": "ecs.amazonaws.com"
+		},
+		"Action": "sts:AssumeRole"
+	}, {
+		"Effect": "Allow",
+		"Principal": {
+			"Service": "ecs-tasks.amazonaws.com"
+		},
+		"Action": "sts:AssumeRole"
+	}
   ]
 }
 EOF
