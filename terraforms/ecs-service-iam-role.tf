@@ -15,7 +15,7 @@ resource "aws_iam_role" "demo2-ecs-service-role" {
 }
 
 resource "aws_iam_role_policy_attachment" "demo2-ecs-role-policy-attachment" {
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AdministratorAccess"
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
   role = aws_iam_role.demo2-ecs-service-role.name
 }
 
