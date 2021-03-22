@@ -20,18 +20,21 @@ resource "aws_iam_role" "demo2-ecs-service-role" {
 			"Service": "ec2.amazonaws.com"
 		},
 		"Action": "sts:AssumeRole"
+        "Sid": ""
 	}, {
 		"Effect": "Allow",
 		"Principal": {
 			"Service": "ecs.amazonaws.com"
 		},
 		"Action": "sts:AssumeRole"
+        "Sid": ""
 	}, {
 		"Effect": "Allow",
 		"Principal": {
 			"Service": "ecs-tasks.amazonaws.com"
 		},
 		"Action": "sts:AssumeRole"
+        "Sid": ""
 	}
   ]
 }
